@@ -1,34 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Air Quality Prediction</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
 <div class="container">
+
     <h2>🌍 Air Quality Prediction</h2>
 
+    <p class="subtitle">
+        An AI-based system to predict PM2.5 air pollution levels and promote
+        sustainable, healthy cities.
+    </p>
+
     <form method="POST">
-        <input name="pm10" placeholder="PM10 (µg/m³)" required>
-        <input name="no" placeholder="NO (µg/m³)" required>
-        <input name="no2" placeholder="NO2 (µg/m³)" required>
-        <input name="so2" placeholder="SO2 (µg/m³)" required>
-        <input name="co" placeholder="CO (mg/m³)" required>
+
+        <input type="number" step="any" name="pm10" placeholder="PM10 (µg/m³)" required>
+        <input type="number" step="any" name="no" placeholder="NO (µg/m³)" required>
+        <input type="number" step="any" name="no2" placeholder="NO2 (µg/m³)" required>
+        <input type="number" step="any" name="so2" placeholder="SO2 (µg/m³)" required>
+        <input type="number" step="any" name="co" placeholder="CO (mg/m³)" required>
 
         <button type="submit">Predict PM2.5</button>
     </form>
 
     {% if prediction %}
-        <div class="result 
-            {% if quality == 'Good' %}good
-            {% elif quality == 'Moderate' %}moderate
-            {% else %}poor{% endif %}">
-            
-            <p><b>Predicted PM2.5:</b> {{ prediction }}</p>
-            <p><b>Air Quality:</b> {{ quality }}</p>
-        </div>
+    <div class="result
+        {% if quality == 'Good 😊' %}good
+        {% elif quality == 'Moderate 😐' %}moderate
+        {% else %}poor{% endif %}">
+        
+        <p><b>Predicted PM2.5:</b> {{ prediction }}</p>
+        <p><b>Air Quality:</b> {{ quality }}</p>
+
+        {% if quality == 'Poor 😷' %}
+            <p class="tip">⚠ Avoid outdoor activities. Wear a mask.</p>
+        {% elif quality == 'Moderate 😐' %}
+            <p class="tip">ℹ Sensitive groups should be cautious.</p>
+        {% else %}
+            <p class="tip">✅ Air quality is safe for outdoor activities.</p>
+        {% endif %}
+    </div>
     {% endif %}
+
+    <hr>
+
+    <h3>📌 How to Use This Tool</h3>
+    <ul>
+        <li><b>PM10:</b> Coarse particles affecting lungs</li>
+        <li><b>NO:</b> Vehicle emission pollutant</li>
+        <li><b>NO2:</b> Causes respiratory irritation</li>
+        <li><b>SO2:</b> Released from industries</li>
+        <li><b>CO:</b> Toxic gas from combustion</li>
+    </ul>
+
+    <hr>
+
+    <h3>🤖 AI Health Assistant</h3>
+    <p>
+        This assistant provides general advice based on air quality levels.
+    </p>
+
+    <div class="chatbox">
+        <p><b>User:</b> Is it safe to go outside today?</p>
+        <p><b>AI:</b> If air quality is Good, outdoor activities are safe. If Poor, avoid long exposure.</p>
+
+        <p><b>User:</b> What precautions should I take?</p>
+        <p><b>AI:</b> Wear a mask, stay indoors during peak pollution hours, and stay hydrated.</p>
+    </div>
+
+    <hr>
+
+    <h3>🌱 About This Project</h3>
+    <p>
+        Developed as part of the <b>AI for Sustainability Virtual Internship (1M1B & AICTE)</b>.
+    </p>
+    <p>
+        Supports <b>UN SDG 11 – Sustainable Cities and Communities</b>.
+    </p>
+
+    <footer>
+        © 2026 Team Work Alliance University <br>
+        AI for Sustainability Internship | Educational Prototype
+    </footer>
 
 </div>
 
