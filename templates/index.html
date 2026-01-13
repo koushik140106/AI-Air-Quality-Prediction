@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Air Quality Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>🌍 Air Quality Prediction</h2>
+
+    <form method="POST">
+        <input name="pm10" placeholder="PM10 (µg/m³)" required>
+        <input name="no" placeholder="NO (µg/m³)" required>
+        <input name="no2" placeholder="NO2 (µg/m³)" required>
+        <input name="so2" placeholder="SO2 (µg/m³)" required>
+        <input name="co" placeholder="CO (mg/m³)" required>
+
+        <button type="submit">Predict PM2.5</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result 
+            {% if quality == 'Good' %}good
+            {% elif quality == 'Moderate' %}moderate
+            {% else %}poor{% endif %}">
+            
+            <p><b>Predicted PM2.5:</b> {{ prediction }}</p>
+            <p><b>Air Quality:</b> {{ quality }}</p>
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
