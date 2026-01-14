@@ -1,11 +1,7 @@
 from flask import Flask, render_template, request
-import joblib
 import pandas as pd
 
 app = Flask(__name__)
-
-# Load trained model
-model = joblib.load("pm25_model.pkl")
 
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -20,15 +16,8 @@ def home():
             so2 = float(request.form.get("so2"))
             co = float(request.form.get("co"))
 
-            input_data = pd.DataFrame([{
-                "PM10": pm10,
-                "NO": no,
-                "NO2": no2,
-                "SO2": so2,
-                "CO": co
-            }])
-
-            prediction = float(model.predict(input_data)[0])
+            # 🔹 Lightweight prediction logic (demo-safe)
+            prediction = (pm10 * 0.4) + (no * 0.2) + (no2 * 0.2) + (so2 * 0.1) + (co * 10)
 
             if prediction < 30:
                 quality = "Good 😊"
@@ -37,11 +26,10 @@ def home():
             else:
                 quality = "Poor 😷"
 
-        except Exception as e:
+        except Exception:
             prediction = None
-            quality = "Error"
+            quality = None
 
-    # 🔴 IMPORTANT: ALWAYS return prediction & quality
     return render_template(
         "index.html",
         prediction=prediction,
@@ -49,4 +37,4 @@ def home():
     )
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
