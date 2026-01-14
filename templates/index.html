@@ -7,13 +7,17 @@
 </head>
 <body>
 
+<div class="navbar">
+    🌍 Air Quality AI | SDG 11 – Sustainable Cities
+</div>
+
 <div class="container">
 
-    <h2>🌍 Air Quality Prediction</h2>
+    <h2>Air Quality Prediction System</h2>
 
     <p class="subtitle">
-        An AI-based system to predict PM2.5 air pollution levels and promote
-        sustainable, healthy cities.
+        Enter real-time air pollution values to predict PM2.5 levels and
+        understand air quality conditions in your area.
     </p>
 
     <form method="POST">
@@ -37,9 +41,9 @@
         <p><b>Air Quality:</b> {{ quality }}</p>
 
         {% if quality == 'Poor 😷' %}
-            <p class="tip">⚠ Avoid outdoor activities. Wear a mask.</p>
+            <p class="tip">⚠ Avoid outdoor activities and wear a mask.</p>
         {% elif quality == 'Moderate 😐' %}
-            <p class="tip">ℹ Sensitive groups should be cautious.</p>
+            <p class="tip">ℹ Sensitive groups should limit outdoor exposure.</p>
         {% else %}
             <p class="tip">✅ Air quality is safe for outdoor activities.</p>
         {% endif %}
@@ -48,38 +52,60 @@
 
     <hr>
 
-    <h3>📌 How to Use This Tool</h3>
+    <h3>📌 Input Parameter Explanation</h3>
     <ul>
-        <li><b>PM10:</b> Coarse particles affecting lungs</li>
-        <li><b>NO:</b> Vehicle emission pollutant</li>
-        <li><b>NO2:</b> Causes respiratory irritation</li>
-        <li><b>SO2:</b> Released from industries</li>
-        <li><b>CO:</b> Toxic gas from combustion</li>
+        <li><b>PM10:</b> Coarse particulate matter that affects breathing</li>
+        <li><b>NO:</b> Nitric Oxide from vehicle emissions</li>
+        <li><b>NO2:</b> Nitrogen Dioxide causing respiratory irritation</li>
+        <li><b>SO2:</b> Sulphur Dioxide released from industrial processes</li>
+        <li><b>CO:</b> Carbon Monoxide produced by incomplete combustion</li>
+    </ul>
+
+    <p>
+        Based on these values, the system predicts <b>PM2.5</b>, a critical indicator
+        of air quality and potential health risk.
+    </p>
+
+    <hr>
+
+    <h3>📊 Air Quality Scale (PM2.5)</h3>
+    <ul>
+        <li>0 – 30 : Good</li>
+        <li>31 – 60 : Moderate</li>
+        <li>Above 60 : Poor</li>
     </ul>
 
     <hr>
 
     <h3>🤖 AI Health Assistant</h3>
-    <p>
-        This assistant provides general advice based on air quality levels.
-    </p>
-
     <div class="chatbox">
-        <p><b>User:</b> Is it safe to go outside today?</p>
-        <p><b>AI:</b> If air quality is Good, outdoor activities are safe. If Poor, avoid long exposure.</p>
+        <p><b>User:</b> What does poor air quality mean?</p>
+        <p><b>AI:</b> Poor air quality indicates high pollution levels and may
+        cause health issues, especially for sensitive groups.</p>
 
         <p><b>User:</b> What precautions should I take?</p>
-        <p><b>AI:</b> Wear a mask, stay indoors during peak pollution hours, and stay hydrated.</p>
+        <p><b>AI:</b> Reduce outdoor activities, wear protective masks, and stay indoors
+        during peak pollution hours.</p>
     </div>
 
     <hr>
 
     <h3>🌱 About This Project</h3>
     <p>
-        Developed as part of the <b>AI for Sustainability Virtual Internship (1M1B & AICTE)</b>.
+        This web application was developed as part of the
+        <b>AI for Sustainability Virtual Internship (1M1B & AICTE)</b>.
     </p>
+
     <p>
-        Supports <b>UN SDG 11 – Sustainable Cities and Communities</b>.
+        It supports <b>UN Sustainable Development Goal 11 – Sustainable Cities and Communities</b>
+        by promoting awareness of air pollution and public health.
+    </p>
+
+    <hr>
+
+    <p class="disclaimer">
+        Disclaimer: This tool is for educational and awareness purposes only.
+        It does not replace official air quality monitoring systems or medical advice.
     </p>
 
     <footer>
