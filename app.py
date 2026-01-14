@@ -64,7 +64,7 @@ def home():
             else:
                 quality = "Poor 😷"
 
-        except Exception as e:
+        except Exception:
             prediction = None
             quality = None
             mode = None
@@ -77,5 +77,7 @@ def home():
     )
 
 
+# ✅ RENDER / CLOUD COMPATIBLE ENTRY POINT
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
