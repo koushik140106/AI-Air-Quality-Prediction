@@ -32,7 +32,7 @@
         <button type="submit">Predict PM2.5</button>
     </form>
 
-    <!-- ✅ OUTPUT BOX (RESTORED & FIXED) -->
+    <!-- ✅ OUTPUT SECTION -->
     {% if prediction is not none %}
     <div class="result
         {% if quality.startswith('Good') %}good
@@ -46,6 +46,10 @@
 
         <p><strong>Air Quality Status:</strong></p>
         <h3>{{ quality }}</h3>
+
+        {% if mode %}
+        <p style="font-size: 12px;"><i>Prediction Mode: {{ mode }}</i></p>
+        {% endif %}
 
         {% if quality.startswith('Poor') %}
             <p class="tip">⚠ Air quality is poor. Avoid outdoor activities and wear a mask.</p>
@@ -61,12 +65,17 @@
 
     <h3>📌 Input Parameter Explanation</h3>
     <ul>
-        <li><b>PM10:</b> Coarse particulate matter that affects breathing</li>
+        <li><b>PM10:</b> Coarse particulate matter affecting lungs</li>
         <li><b>NO:</b> Nitric Oxide mainly from vehicle emissions</li>
         <li><b>NO2:</b> Nitrogen Dioxide causing respiratory irritation</li>
         <li><b>SO2:</b> Sulphur Dioxide released from industries</li>
         <li><b>CO:</b> Carbon Monoxide from incomplete combustion</li>
     </ul>
+
+    <p>
+        Based on these inputs, the AI system predicts <b>PM2.5</b>,
+        one of the most critical indicators of air pollution and health risk.
+    </p>
 
     <hr>
 
@@ -81,13 +90,15 @@
 
     <h3>🌱 About This Project</h3>
     <p>
-        Developed as part of the <b>AI for Sustainability Virtual Internship (1M1B & AICTE)</b>.
-        This project supports <b>SDG 11 – Sustainable Cities and Communities</b>.
+        Developed as part of the
+        <b>AI for Sustainability Virtual Internship (1M1B & AICTE)</b>.
+        The project supports
+        <b>UN SDG 11 – Sustainable Cities and Communities</b>.
     </p>
 
     <p class="disclaimer">
         Disclaimer: This tool is for educational and awareness purposes only.
-        It does not replace official air quality monitoring systems.
+        It does not replace official air quality monitoring systems or medical advice.
     </p>
 
     <footer>
