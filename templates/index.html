@@ -32,25 +32,27 @@
         <button type="submit">Predict PM2.5</button>
     </form>
 
-    <!-- OUTPUT SECTION (IMPORTANT FIX) -->
+    <!-- ✅ OUTPUT BOX (RESTORED & FIXED) -->
     {% if prediction is not none %}
     <div class="result
         {% if quality.startswith('Good') %}good
         {% elif quality.startswith('Moderate') %}moderate
         {% else %}poor{% endif %}">
 
-        <p><strong>Predicted PM2.5 Value:</strong></p>
-        <h3>{{ prediction | round(2) }} µg/m³</h3>
+        <h3>Prediction Result</h3>
+
+        <p><strong>Predicted PM2.5:</strong></p>
+        <h2>{{ prediction | round(2) }} µg/m³</h2>
 
         <p><strong>Air Quality Status:</strong></p>
         <h3>{{ quality }}</h3>
 
         {% if quality.startswith('Poor') %}
-            <p class="tip">⚠ Avoid outdoor activities and wear a protective mask.</p>
+            <p class="tip">⚠ Air quality is poor. Avoid outdoor activities and wear a mask.</p>
         {% elif quality.startswith('Moderate') %}
-            <p class="tip">ℹ Sensitive groups should limit outdoor exposure.</p>
+            <p class="tip">ℹ Air quality is moderate. Sensitive groups should limit exposure.</p>
         {% else %}
-            <p class="tip">✅ Air quality is safe for outdoor activities.</p>
+            <p class="tip">✅ Air quality is good. Safe for outdoor activities.</p>
         {% endif %}
     </div>
     {% endif %}
@@ -59,17 +61,12 @@
 
     <h3>📌 Input Parameter Explanation</h3>
     <ul>
-        <li><b>PM10:</b> Coarse particulate matter affecting lungs</li>
+        <li><b>PM10:</b> Coarse particulate matter that affects breathing</li>
         <li><b>NO:</b> Nitric Oxide mainly from vehicle emissions</li>
         <li><b>NO2:</b> Nitrogen Dioxide causing respiratory irritation</li>
         <li><b>SO2:</b> Sulphur Dioxide released from industries</li>
         <li><b>CO:</b> Carbon Monoxide from incomplete combustion</li>
     </ul>
-
-    <p>
-        Using these inputs, the AI model predicts <b>PM2.5</b>,
-        one of the most critical indicators of air pollution and health risk.
-    </p>
 
     <hr>
 
@@ -82,35 +79,15 @@
 
     <hr>
 
-    <h3>🤖 AI Health Assistant</h3>
-    <div class="chatbox">
-        <p><b>User:</b> What does poor air quality mean?</p>
-        <p><b>AI:</b> It indicates high pollution levels that may cause breathing
-        problems, especially for children and elderly people.</p>
-
-        <p><b>User:</b> What precautions should I take?</p>
-        <p><b>AI:</b> Reduce outdoor exposure, wear masks, and stay indoors during
-        peak pollution hours.</p>
-    </div>
-
-    <hr>
-
     <h3>🌱 About This Project</h3>
     <p>
-        This web application was developed as part of the
-        <b>AI for Sustainability Virtual Internship (1M1B & AICTE)</b>.
+        Developed as part of the <b>AI for Sustainability Virtual Internship (1M1B & AICTE)</b>.
+        This project supports <b>SDG 11 – Sustainable Cities and Communities</b>.
     </p>
-
-    <p>
-        It supports <b>UN Sustainable Development Goal 11 – Sustainable Cities
-        and Communities</b> by promoting awareness of air pollution and public health.
-    </p>
-
-    <hr>
 
     <p class="disclaimer">
         Disclaimer: This tool is for educational and awareness purposes only.
-        It does not replace official air quality monitoring systems or medical advice.
+        It does not replace official air quality monitoring systems.
     </p>
 
     <footer>
