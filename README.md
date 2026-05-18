@@ -12,9 +12,9 @@ How might we use Artificial Intelligence to predict air pollution levels so that
 
 # 🎯 SDG Alignment
 
-## **SDG 11 – Sustainable Cities and Communities**
+## SDG 11 – Sustainable Cities and Communities
 
-This project promotes awareness of air pollution and supports sustainable urban living.
+This project promotes awareness about air pollution and supports sustainable urban living.
 
 ---
 
@@ -85,7 +85,7 @@ A Flask-based web application allows users to enter pollution values and instant
 
 # 🚀 How to Run the Project
 
-1. Clone the repository
+## 1. Clone the Repository
 
 ```bash
 git clone https://github.com/koushik140106/AI-Air-Quality-Prediction.git
